@@ -1,0 +1,120 @@
+@font-face { font-family: Roslindale Bold; src: url('../src/fonts/RoslindaleText-Bold.ttf'); } 
+@font-face { font-family: Radikal; src: url('../src/fonts/Nootype\ -\ Radikal.otf'); } 
+:root {
+    --darkblue: #0D627A;
+    --seablue: #0C907D;
+    --lightlime: #CCE490;
+    --lightyellow: #F2F4B2;
+  }
+body {
+    background: linear-gradient(179.98deg, #0D627A 0.01%, #002E27 102.84%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    font-family: 'Radikal';
+}
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+h1 {
+    font-family: 'Roslindale Bold';
+    font-size: 2em;
+    line-height: 150%;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--lightlime);
+}
+.sunsignbtn {
+    position: relative;
+    display: block;
+    height: 3em;
+    margin: 3em auto;
+    padding: 1em 2em 2em 2em;
+    font-family: 'Radikal';
+    font-size: 18px;
+    color: var(--darkblue);
+    background: var(--lightlime);
+    border-color: transparent;
+    border-radius: 7px;
+    transition: ease-in-out 0.3s;
+
+}
+.sunsignbtn:hover {
+    background: #002E27;
+    color: var(--seablue);
+}
+.select-css {
+    position: relative;
+    display: block;
+    width: 12em;
+    height: 3em;
+    margin: 1em auto;
+    padding: 5px 1em 5px 1em;
+    font-family: 'Radikal';
+    font-size: 1.2em;
+    color: var(--seablue);
+    background: transparent;
+    border-color: var(--seablue);
+    border-radius: 7px;
+    transition: ease-in-out 0.3s;
+}
+    /* Hide arrow icon in IE browsers */
+    .select-css::-ms-expand {
+    display: none;
+    }
+    /* Hover style */
+    .select-css:hover {
+    border-color: var(--lightlime);
+    color: var(--seablue);
+    background-color: var(--lightlime);
+    }
+    /* Focus style */
+    .select-css:focus {
+    border-color: var(--seablue);
+    /* It'd be nice to use -webkit-focus-ring-color here but it doesn't work on box-shadow */
+    color: var(--seablue); 
+    border-color: var(--darkblue);
+    outline: none;
+    
+    }
+    
+    /* Set options to normal weight */
+    .select-css option {
+    background: var(--lightlime);
+    padding: 15px;
+    }
+    
+    /* Support for rtl text, explicit support for Arabic and Hebrew */
+    *[dir="rtl"] .select-css, :root:lang(ar) .select-css, :root:lang(iw) .select-css {
+    background-position: left .7em top 50%, 0 0;
+    padding: .6em .8em .5em 1.4em;
+    }
+    select:after {
+        justify-self: end;
+}
+.goagain {
+        position: relative;
+        display: block;
+        height: 3em;
+        margin: 3em auto;
+        padding: 1em 2em 2em 2em;
+        font-family: 'Radikal';
+        font-size: 18px;
+        color: var(--darkblue);
+        background: var(--lightlime);
+        border-color: transparent;
+        border-radius: 7px;
+        transition: ease-in-out 0.3s;
+        display: none;
+    
+    }
+    .goagain:hover {
+        background: #002E27;
+        color: var(--seablue);
+    }
+    #SunSignImg {
+        display: none;
+    }
