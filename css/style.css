@@ -5,14 +5,22 @@
     --seablue: #0C907D;
     --lightlime: #CCE490;
     --lightyellow: #F2F4B2;
+}
+    html{
+        
+    min-height: 100%;
+    background: linear-gradient(179.98deg, #0D627A 0.01%, #002E27 102.84%);
   }
 body {
-    background: linear-gradient(179.98deg, #0D627A 0.01%, #002E27 102.84%);
-    height: 100vh;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     align-content: flex-start;
+    justify-content: center;
     font-family: 'Radikal';
+    padding-left: 5em;
+    padding-right: 5em;
+    
 }
 .logo {
     display: block;
@@ -22,6 +30,14 @@ body {
 h1 {
     font-family: 'Roslindale Bold';
     font-size: 2em;
+    line-height: 150%;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--lightlime);
+}
+h2 {
+    font-family: 'Roslindale Bold';
+    font-size: 1.2em;
     line-height: 150%;
     text-align: center;
     text-transform: uppercase;
@@ -108,13 +124,44 @@ h1 {
         border-color: transparent;
         border-radius: 7px;
         transition: ease-in-out 0.3s;
-        display: none;
     
     }
     .goagain:hover {
         background: #002E27;
         color: var(--seablue);
     }
-    #SunSignImg {
-        display: none;
+    .content-card { 
+        display: grid;
+        grid-template-columns: 0.5fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 0px 0px;
+        grid-template-areas:
+          "signIMG signDATA";
     }
+        @media screen and (max-width: 768px) {
+            .content-card { 
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-template-areas:
+              "signIMG"
+              "signDATA";
+        }
+    
+}
+
+    .signDATA{
+    grid-area: signDATA;
+
+    }
+    #SunSignImg {
+    max-width: 300px;
+    grid-area: signIMG;
+    }
+
+    #result {
+    color: var(--lightyellow);
+    font-size: 1.3em;
+    font-weight: 400;
+    line-height: 150%;
+    }
+    

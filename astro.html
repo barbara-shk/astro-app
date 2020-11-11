@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select name="month" id="month">
+        <option value="January" id="Jan">January</option>
+        <option value="February" id="Feb">February</option>
+        <option value="March" id="Mar">March</option>
+        <option value="April" id="Apr">April</option>
+        <option value="May" id="May">May</option>
+        <option value="June" id="june">June</option>
+        <option value="July" id="July">July</option>
+        <option value="August" id="Aug">August</option>
+        <option value="September" id="Sept">September</option>
+        <option value="October" id="Oct">October</option>
+        <option value="November" id="Nov">November</option>
+        <option value="December" id="Dec">December</option>
+    </select>
+    <select name="day" id="day">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+    </select>
+    <button id="button">
+        calculate!
+    </button>
+    <p id="result"></p>
+
+    <script>
+const button = document.getElementById('button')
+const month = document.getElementById('month')
+const day = document.getElementById('day')
+const result = document.getElementById('result')
+
+function GetSign(Month, Day) {
+	if (
+		(month.value == 'March' && day.value >= 21) ||
+		(month.value == 'April' && day.value <= 19)
+	) {
+		result.innerHTML = 'Aries'
+	} else if (month.value == 'March' && day.value > 31) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'April' && day.value >= 20) ||
+		(month.value == 'May' && day.value <= 20)
+	) {
+		result.innerHTML = 'Taurus'
+	} else if (month.value == 'April' && day.value > 30) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'May' && day.value >= 21) ||
+		(month.value == 'June' && day.value <= 21)
+	) {
+		result.innerHTML = 'Gemini'
+	} else if (month.value == 'May' && day.value > 31) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'June' && day.value >= 22) ||
+		(month.value == 'July' && day.value <= 22)
+	) {
+		result.innerHTML = 'cancer'
+	} else if (month.value == 'June' && day.value > 30) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'July' && day.value >= 23) ||
+		(month.value == 'August' && day.value <= 22)
+	) {
+		result.innerHTML = 'Leo'
+	} else if (month.value == 'July' && day.value > 31) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'August' && day.value >= 23) ||
+		(month.value == 'September' && day.value <= 22)
+	) {
+		result.innerHTML = 'virgo'
+	} else if (month.value == 'August' && day.value > 31) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'September' && day.value >= 23) ||
+		(month.value == 'October' && day.value <= 22)
+	) {
+		result.innerHTML = 'libra'
+	} else if (month.value == 'September' && day.value > 30) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'October' && day.value >= 23) ||
+		(month.value == 'November' && day.value <= 21)
+	) {
+		result.innerHTML = 'scorpio'
+	} else if (month.value == 'October' && day.value > 31) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'November' && day.value >= 22) ||
+		(month.value == 'December' && day.value <= 21)
+	) {
+		result.innerHTML = 'Sagittarius'
+	} else if (month.value == 'November' && day.value > 30) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'December' && day.value >= 22) ||
+		(month.value == 'January' && day.value <= 19)
+	) {
+		result.innerHTML = 'capricorn'
+	} else if (month.value == 'December' && day.value > 31) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'January' && day.value >= 20) ||
+		(month.value == 'February' && day.value <= 18)
+	) {
+		result.innerHTML = 'Aquarius'
+	} else if (month.value == 'January' && day.value > 31) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'February' && day.value >= 19) ||
+		(month.value == 'March' && day.value <= 20)
+	) {
+		result.innerHTML = 'pisces'
+	} else if (month.value == 'February' && day.value > 29) {
+		result.innerHTML = 'invalid date'
+	}
+}
+button.addEventListener('click', GetSign)
+    </script>
+</body>
+</html>

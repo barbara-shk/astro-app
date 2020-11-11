@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bobbay's Sun Sign Calculator</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./src/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="astrodata.json"></script>
+
 </head>
 <body>
 
-    <div class="content">
+
         <img src="./src/img/sunLogo.svg" alt="sun logo" class="logo">
-        <h1 class="apptitle">Sun Sign
-            
-            <br>Calculator</h1>
+        <div class="content" id="sign-content">
+        <h1 class="apptitle">Sun Sign <br>Calculator</h1>
         
             <select name="day" id="day" class="select-css">
                 <option value="">Day</option>
@@ -51,9 +52,9 @@
             </select>
 
             <select name="Month" class="select-css" id="month">
-                <option>Month</option>
+                <option value=Month>Month</option>
                 <option value="January">January</option>
-                <option value="Febuary">Febuary</option>
+                <option value="Febuary">February</option>
                 <option value="March">March</option>
                 <option value="April">April</option>
                 <option value="May">May</option>
@@ -66,7 +67,7 @@
                 <option value="December">December</option>
                 </select>
 
-            <select name="Year" class="select-css" id="year">
+            <!-- <select name="Year" class="select-css" id="year">
                 <option>Year</option>
                 <option value="2020">2020</option>
                 <option value="2019">2019</option>
@@ -159,38 +160,163 @@
                 <option value="1932">1932</option>
                 <option value="1931">1931</option>
                 <option value="1930">1930</option>
-            </select>
+            </select> -->
 
-            <button type="submit" class="sunsignbtn" id="SunSignBtn" target="sunsignbtn" onclick="SunSignCalc()">Let's Go!</button>
+
+
+            <button type="submit" class="sunsignbtn" id="SunSignBtn" target="sunsignbtn">Let's Go!</button>
     </div>
-    <div id="sign-content">
-        <img src="" alt="sign" id="SunSignImg">
+    <div class="sign-card" id="sign-card">
         <h1 id="SunSignH1"></h1>
-        <p id="SunSignDesc"></p>
+        <div class="content-card">
+            <div><img id="SunSignImg" src="" style="width:40vw"></div>
+            <div class="signDATA"><h2 id="SunSignH2"></h2>
+            <p id="result"></p>
+            <button type="submit" class="goagain" id="GoAgainBtn" style="display: none">Again!</button></div>
+        </div>
         
-        <button type="submit" class="goagain" id="GoAgainBtn">Again!</button>
+
+    <button type="submit" class="goagain" id="GoAgainBtn" style="display: none">Again!</button>
     </div>
-</body>
 
 <script>
-var birthDay = document.getElementById(day);
-var birthMonth = document.getElementById(month);
-var birthYear = document.getElementById(year);
-var sign = [
-	{
-		zodiacName: "aries",
-		birthdayRange: "March 21 - April 19",
-		attributes: "Aries are fire signs and those born under this element are regarded in astrology as adventurous, active and outgoing. It won't matter where you go or how remote or unusual it is - from the Outback to the Antarctic - you can be sure that an Aries has been there before you (or at the very least you will meet one along the way!) Aries is a uniquely naive sign. Although they are independent, outgoing and assertive they are also surprisingly trusting, often innocently walking into the lion's den at times. No matter what upheaval, challenge or triumph they confront - an Aries has a wonderful ability to bounce back. Their faith in life and the future remains untouched by hardship. Their gift is that they are always children at heart and the world is always a magical place for them. Many famous sports people are born under this sign. Aries is regarded as the most physical sign and because of its Mar's rulership; it is also one of the most highly charged masculine energy signs in astrology. No wonder women born under Aries are forceful, dynamic and aggressive, and as a result these Aries women frequently find themselves with dilemmas surrounding their romantic relationships. For them, a man has to be a 'real man' to deal with an Aries woman, otherwise she intimidates him. And conversely for the Aries male, a woman has to be a real woman to deal with him, because he is looking for many balancing component traits (his true feminine side) in his partner. She has to run the gamut in his support system, from the Aries man's best friend, true companion, through to his muse, and yet she must never ever answer him back!",
-		picture: "http://courtneysgamecoderocks.com/ZodiacProject/img/ariesSign.png"
-	},]
+const button = document.getElementById('SunSignBtn')
+const month = document.getElementById('month')
+const day = document.getElementById('day')
+const result = document.getElementById('SunSignH1')
+const resultImg = document.getElementById("SunSignImg")
+const resultBtn = document.getElementById('GoAgainBtn')
+const resultDesc = document.getElementById('result')
+const resultTitle = document.getElementById('SunSignH2')
 
-function SunSignCalc(day, month, year) {
-    if (birthMonth == 'January'&& birthDay >= 20 || birthMonth == 'February' && birthday <= 18
-    )
-document.getElementById("SunSignImg").innerHTML= "<img src='./sagittarius 1.png' width=20%>";
+const astroData = [
+        {
+            signImg : "./src/img/sagittarius.png",
+            signName : "You\'re an Aries !",
+            signTitle: "Aries Characteristics",
+            signDescription: "<strong>THE ARCHER</strong> | NOV 22 - DEC 21 <br> Adventurous, Creative, Strong-Willed <br> <strong>Sagittarius Motto: </strong> Don't let anyone tell you what is right. Live, explore and experiment"
+        },
+        {
+            signImg : "./src/img/.png",
+            signName : "65086",
+            signTitle : "The Woman in Black",
+            signDescription: "<strong>THE ARCHER</strong> | NOV 22 - DEC 21 <br> Adventurous, Creative, Strong-Willed <br> <strong>Sagittarius Motto: </strong> Don't let anyone tell you what is right. Live, explore and experiment"
+        },
+]
+function GetSign(Month, Day) {
+	if (
+		(month.value == 'March' && day.value >= 21) ||
+		(month.value == 'April' && day.value <= 19)
+	) {
+		result.innerHTML = astroData[0].signName
+		resultTitle.innerHTML = astroData[0].signTitle
+        resultImg.src= astroData[0].signImg
+        resultDesc.innerHTML = astroData[0].signDescription
+	} else if (month.value == 'March' && day.value > 31) {
+		result.innerHTML = 'invalid date'
 
+	} else if (
+		(month.value == 'April' && day.value >= 20) ||
+		(month.value == 'May' && day.value <= 20)
+	) {
+		result.innerHTML = 'You\'re a Taurus !'
+	} else if (month.value == 'April' && day.value > 30) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'May' && day.value >= 21) ||
+		(month.value == 'June' && day.value <= 21)
+	) {
+		result.innerHTML = 'You\'re a Gemini !'
+	} else if (month.value == 'May' && day.value > 31) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'June' && day.value >= 22) ||
+		(month.value == 'July' && day.value <= 22)
+	) {
+		result.innerHTML = 'You\'re a Cancer !'
+	} else if (month.value == 'June' && day.value > 30) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'July' && day.value >= 23) ||
+		(month.value == 'August' && day.value <= 22)
+	) {
+		result.innerHTML = 'You\'re a Leo !'
+	} else if (month.value == 'July' && day.value > 31) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'August' && day.value >= 23) ||
+		(month.value == 'September' && day.value <= 22)
+	) {
+		result.innerHTML = 'You\'re a Virgo !'
+	} else if (month.value == 'August' && day.value > 31) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'September' && day.value >= 23) ||
+		(month.value == 'October' && day.value <= 22)
+	) {
+		result.innerHTML = 'You\'re a Libra !'
+	} else if (month.value == 'September' && day.value > 30) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'October' && day.value >= 23) ||
+		(month.value == 'November' && day.value <= 21)
+	) {
+		result.innerHTML = 'You\'re a Scorpio !'
+	} else if (month.value == 'October' && day.value > 31) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'November' && day.value >= 22) ||
+		(month.value == 'December' && day.value <= 21)
+	) {
+		result.innerHTML = 'You\'re a Sagittarius !'
+	} else if (month.value == 'November' && day.value > 30) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'December' && day.value >= 22) ||
+		(month.value == 'January' && day.value <= 19)
+	) {
+		result.innerHTML = 'You\'re a Capricorn !'
+	} else if (month.value == 'December' && day.value > 31) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'January' && day.value >= 20) ||
+		(month.value == 'February' && day.value <= 18)
+	) {
+		result.innerHTML = 'You\'re an Aquarius !'
+	} else if (month.value == 'January' && day.value > 31) {
+		result.innerHTML = 'invalid date'
+	} else if (
+		(month.value == 'February' && day.value >= 19) ||
+		(month.value == 'March' && day.value <= 20)
+	) {
+		result.innerHTML = 'You\'re a Pisces !'
+	} else if (month.value == 'February' && day.value > 29) {
+		result.innerHTML = 'invalid date'
+	}
 }
-</script>
 
+
+
+    $(document).ready(function(){
+        $("button").click(function(){      
+            $("#sign-card").fadeIn()
+            $("#sign-content").fadeOut()
+            $("#GoAgainBtn").fadeIn();
+});
+});
+    $(document).ready(function(){
+        $("#GoAgainBtn").click(function(){
+            $("#sign-card").fadeOut()
+            $("#sign-content").fadeIn();
+    
+});
+});
+button.addEventListener('click', GetSign)
+
+let request = new XMLHttpRequest();
+request.open('GET', 'astrodata.json', true);
+request.send();
+    </script>
+</body>
 
 </html>
