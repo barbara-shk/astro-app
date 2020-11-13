@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bobbay's Sun Sign Calculator</title>
+    <title>Zodiac Sun Sign Calculator</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/png" href="./src/img/favicon.png"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="astrodata.json"></script>
 
 </head>
 <body>
 
-
-        <img src="./src/img/sunLogo.svg" alt="sun logo" class="logo">
+    <a href="javascript: location.reload(true);"><img src="./src/img/sunLogo.svg" alt="sun logo" class="logo"></a>
         <div class="content" id="sign-content">
-        <h1 class="apptitle">Sun Sign <br>Calculator</h1>
+            <h1 class="apptitle">Sun Sign <br>Calculator</h1>
         
             <select name="day" id="day" class="select-css">
                 <option value="">Day</option>
@@ -165,17 +165,18 @@
 
 
             <button type="submit" class="sunsignbtn" id="SunSignBtn" target="sunsignbtn">Let's Go!</button>
-    </div>
-    <div class="sign-card" id="sign-card">
-        <h1 id="SunSignH1"></h1>
-        <div class="content-card">
-            <div><img id="SunSignImg" src=""></div>
-            <div class="signDATA"><h2 id="SunSignH2"></h2>
-            <p id="result"></p>
-            <button type="submit" class="goagain" id="GoAgainBtn" style="display: none">Again!</button></div>
         </div>
-        
 
+    <div class="sign-card" id="sign-card">
+        <div class="content-card">
+            <div class="signIMG">
+            <h1 id="SunSignH1"></h1>
+            <img id="SunSignImg" src=""></div>
+            <div class="signDATA"><h2 id="SunSignH2"><div class="h2Puce" style="visibility: hidden;"></div></h2>
+            <p id="result"></p>
+            <button type="submit" class="goagain" id="GoAgainBtn" style="display: none">Again!</button>
+            </div>
+            
     </div>
 
 <script>
@@ -188,20 +189,69 @@ const resultBtn = document.getElementById('GoAgainBtn')
 const resultDesc = document.getElementById('result')
 const resultTitle = document.getElementById('SunSignH2')
 
-const astroData = [
-        {
-            signImg : "./src/img/sagittarius.png",
+const astroData = [{
+            signImg : "./src/img/aries.png",
             signName : "You\'re an Aries !",
-            signTitle: "Aries Characteristics",
-            signDescription: "<strong>THE ARCHER</strong> | NOV 22 - DEC 21 <br> Adventurous, Creative, Strong-Willed <br> <strong>Sagittarius Motto: </strong> Don't let anyone tell you what is right. Live, explore and experiment"
-        },
-        {
-            signImg : "./src/img/.png",
-            signName : "65086",
-            signTitle : "The Woman in Black",
-            signDescription: "<strong>THE ARCHER</strong> | NOV 22 - DEC 21 <br> Adventurous, Creative, Strong-Willed <br> <strong>Sagittarius Motto: </strong> Don't let anyone tell you what is right. Live, explore and experiment"
-        },
-]
+            signTitle: "<img src=\"./src/img/staricon.png\" class=\"staricon\">Aries Characteristics<img src=\"./src/img/staricon.png\" class=\"staricon\">",
+            signDescription: "<strong>THE RAM</strong> | MAR 21 - APR 19 <br> Adventurous, Creative, Strong-Willed <br><br> <strong>Aries Motto: </strong> When you know yourself, you\'re empowered. When you accept yourself, you\'re invincible.<br>The first sign of the Zodiac, Aries are the trailblazers. Passionate and independent, Aries will never do something just because everyone else is doing it—a Ram needs to be 100 percent committed to the task at hand. Competitive to the max, the best way to motivate an Aries is to turn something into a contest. Aries will put everything they have \(and then some\) into winning. Loyal, smart, and impulsive, they always have multiple projects on their mind, and won\'t be satisfied until their work, social life, and personal lives line up exactly with the dream life they\'ve envisioned. Those who are drawn to magnetic Aries may have trouble keeping up—but if they can, they\'ll have a friend for life."
+        },{
+            signImg : "./src/img/taurus.png",
+            signName : "You\'re a Taurus !",
+            signTitle : "<img src=\"./src/img/staricon.png\" class=\"staricon\">Taurus Characteristics<img src=\"./src/img/staricon.png\" class=\"staricon\">",
+            signDescription: "<strong>BULL </strong> | APR 20 - MAY 20 <br> Dependable, Musical, Practical <br><br> <strong>Taurus Motto: </strong> Nothing worth having comes easy.<br>Smart, ambitious, and trustworthy, Taurus is the anchor of the Zodiac. Amazing friends, colleagues, and partners, Taureans value honesty above all else and are proud that their personal relationships tend to be drama free. Bulls get the reputation of being stubborn, but they\'re not always stuck in their ways. This searching sign is willing to see another point of view, but they won\'t flip-flop on an opinion just to make someone else happy. They will shift their thinking only if they truly have a change of heart."
+        },{
+            signImg : "./src/img/gemini.png",
+            signName : "You\'re a Gemini !",
+            signTitle : "<img src=\"./src/img/staricon.png\" class=\"staricon\">Gemini Characteristics<img src=\"./src/img/staricon.png\" class=\"staricon\">",
+            signDescription: "<strong>TWINS</strong> | MAY 21 - JUN 20 <br> Adventurous, Creative, Strong-Willed <br><br> <strong>Gemini Motto: </strong> I manifest my reality.<br>Smart, passionate, and dynamic, Gemini is characterized by the Twins, Castor and Pollux, and is known for having two different sides they can display to the world. Expert communicators, Gemini is the chameleon of the Zodiac, adept at blending into different groups based on the vibe and energy they perceive. While they\'re also amazing at showcasing surface traits, the Gemini well runs deep, which is why the Twins are one of the Zodiac\'s most emotionally intelligent signs."
+        },{
+            signImg : "./src/img/cancer.png",
+            signName : "You\'re a Cancer !",
+            signTitle : "<img src=\"./src/img/staricon.png\" class=\"staricon\"> Cancer Characteristics <img src=\"./src/img/staricon.png\" class=\"staricon\">",
+            signDescription: "<strong>CRAB</strong> | JUN 21 - JUL 22 <br> Intuitive, Emotional, Intelligent, Passionate <br><br> <strong>Cancer Motto: </strong> I feel, therefore I am.<br>Emotional, intuitive, and practically psychic; ruled by the moon and characterized by the crab, Cancer has so much going on in its watery depths. Cancers may seem prickly and standoffish at first meeting, once they make the decision to become friends with someone, that person has a friend for life."
+        },{
+            signImg : "./src/img/leo.png",
+            signName : "You\'re a Leo !",
+            signTitle : "<img src=\"./src/img/staricon.png\" class=\"staricon\">Leo Characteristics<img src=\"./src/img/staricon.png\" class=\"staricon\">",
+            signDescription: "<strong>THE LION</strong> | JUL 23 - AUG 22 <br> Proud, Bold, Ambitious <br><br> <strong>Leo Motto: </strong> DIf you know the way, go the way and show the way—you\'re a leader.<br>Bold, intelligent, warm, and courageous, fire sign Leo is a natural leader of the Zodiac, ready to blaze a trail, vanquish injustice, and make a name for themselves along the way. Blessed with high self-esteem, Lions know that they possess enviable traits—and they\'re proud of them. They don\'t believe in false modesty and will be the first to praise themselves for a job well done. But Leo isn\'t self-aggrandizing or unwilling to roll up those sleeves and do the work: this sign knows that in order to be respected and admired, he or she needs to put in the effort worthy of a leader."
+        },{
+            signImg : "./src/img/virgo.png",
+            signName : "You\'re a Virgo !",
+            signTitle : "<img src=\"./src/img/staricon.png\" class=\"staricon\">Virgo Characteristics<img src=\"./src/img/staricon.png\" class=\"staricon\">",
+            signDescription: "<strong>THE VIRGIN</strong> | AUG 23 - SEP 22 <br> Graceful, Organized, Kind <br><br> <strong>Virgo Motto: </strong> My best can always be better.<br>Smart, sophisticated, and kind, Virgo gets the job done without complaining. Virgos are amazing friends, always there to lend a hand and also lend advice. Practical Virgos are incredibly adept at big picture thinking, and planning out their life, their vacations, and what they\'re going to do today isn\'t a drag it makes them feel in control and secure."
+        },{
+            signImg : "./src/img/libra.png",
+            signName : "You\'re a Libra !",
+            signTitle : "<img src=\"./src/img/staricon.png\" class=\"staricon\">Libra Characteristics<img src=\"./src/img/staricon.png\" class=\"staricon\">",
+            signDescription: "<strong>THE SCALES</strong> | SEP 23 - OCT 22 <br> Diplomatic, Artistic, Intelligent <br><br> <strong>Libra Motto: </strong> No person is an island.<br>Intelligent, kind, and always willing to put others before themselves, Libras value harmony in all forms. Ruled by Venus, the planet of beauty, Libra adores a life that looks good. As the master of compromise and diplomacy, Libra is adept at seeing all points of view, and excels at crafting compromises and effecting mediation between others. This sign has a rich inner life yet loves other people, and they\'re always happiest with a large group of friends, family, and coworkers on whom they can count."
+        },{
+            signImg : "./src/img/scorpio.png",
+            signName : "You\'re a Scorpio !",
+            signTitle : "<img src=\"./src/img/staricon.png\" class=\"staricon\">Scorpio Characteristics<img src=\"./src/img/staricon.png\" class=\"staricon\">",
+            signDescription: "<strong>THE SCORPION</strong> | OCT 23 - NOV 21 <br> Seductive, Passionate, Independent <br><br> <strong>Scorpio Motto: </strong> You never know what you are capable of until you try.<br>Passionate, independent, and unafraid to blaze their own trail no matter what others think, Scorpios make a statement wherever they go. They love debates, aren\'t afraid of controversy, and won\'t back down from a debate. They also hate people who aren\'t genuine, and are all about being authentic—even if authentic isn\'t pretty."
+        },{
+            signImg : "./src/img/sagittarius.png",
+            signName : "You\'re a Sagittarius !",
+            signTitle : "<img src=\"./src/img/staricon.png\" class=\"staricon\">Sagittarius Characteristics<img src=\"./src/img/staricon.png\" class=\"staricon\">",
+            signDescription: "<strong>THE ARCHER</strong> | NOV 22 - DEC 21 <br> Adventurous, Creative, Strong-Willed <br><br> <strong>Sagittarius Motto: </strong> Don\'t let anyone tell you what is right. Live, explore and experiment<br>Independent and strong-willed, Sagittarius personalities are all about going off the beaten path. Sagittarius isn’t afraid to step away from the pack, and is a natural born leader who goes after what he or she wants, regardless of what other people think. Sagittarius is a born adventurer, and loves solo travel and exploration. Sagittarius also loves exploring the inner workings of their minds, and love stretching their horizons through a good book or movie."
+        },{
+            signImg : "./src/img/capricorn.png",
+            signName : "You\'re a Capricorn !",
+            signTitle : "<img src=\"./src/img/staricon.png\" class=\"staricon\">Capricorn Characteristics<img src=\"./src/img/staricon.png\" class=\"staricon\">",
+            signDescription: "<strong>THE GOAT</strong> | DEC 22 - JAN 19 <br> Detail-oriented, Intelligent, Hardworking<br><br> <strong>Capricorn Motto: </strong> I can succeed at anything I put my mind to.<br>Smart, hardworking, and fully in control of their destiny, a Capricorn will always get what they set their mind to, in both personal and professional life—no excuses. Capricorns may get a reputation as stubborn, but they simply know what they want, and also know how they wish other people would behave."
+        },{
+            signImg : "./src/img/aquarius.png",
+            signName : "You\'re an Aquarius !",
+            signTitle : "<img src=\"./src/img/staricon.png\" class=\"staricon\">Aquarius Characteristics<img src=\"./src/img/staricon.png\" class=\"staricon\">",
+            signDescription: "<strong>WATER BEARER </strong> | JAN 20 - FEB 18 <br> Imaginative, Idealistic, Intuitive <br><br> <strong>Aquarius Motto: </strong> There is no me, there is only we<br>Independent and enigmatical, Aquarians are unique. There is no one quite like an Aquarius, and because each is so incredibly individual, it can be tough to describe them as a group. Aquarians don\'t like labels, and may shy away from any adjective—even the good ones you might bestow upon them. Aquarians believe in the nature of change and evolution, and even though they\'re a fixed sign, they may not necessarily believe they are the \"same\" people they were when they were born."
+        },{
+            signImg : "./src/img/pisces.png",
+            signName : "You\'re a Pisces !",
+            signTitle : "<img src=\"./src/img/staricon.png\" class=\"staricon\">Pisces Characteristics<img src=\"./src/img/staricon.png\" class=\"staricon\">",
+            signDescription: "<strong>FISH</strong> | FEB 19 - MAR 20 <br> Creative, Sensitive, Artistic<br><br> <strong>Pisces Motto: </strong> Go with the flow<br>Smart, creative, and deeply intuitive, Pisces can be close to psychic. Pisces feel things deeply, and have incredibly strong gut reactions. A Pisces \"knows\" things from deep within, and can often judge whether a person or situation is good or bad. That doesn\'t mean a Pisces ignores the logical part of their brain, though. Deeply intelligent, Pisces have a profound respect for the power of the human mind. Is it a surprise that Albert Einstein was a Pisces?"
+        },]
+
+
 function GetSign(Month, Day) {
 	if (
 		(month.value == 'March' && day.value >= 21) ||
@@ -211,86 +261,168 @@ function GetSign(Month, Day) {
 		resultTitle.innerHTML = astroData[0].signTitle
         resultImg.src= astroData[0].signImg
         resultDesc.innerHTML = astroData[0].signDescription
-	} else if (month.value == 'March' && day.value > 31) {
-		result.innerHTML = 'invalid date'
 
-	} else if (
+	}if (month.value == 'March' && day.value > 31) {
+        result.innerHTML = "Hm, I'm not sure about the date"
+		resultTitle.innerHTML = ""
+        resultImg.src= ""
+        resultDesc.innerHTML = ""
+
+	}if (
 		(month.value == 'April' && day.value >= 20) ||
 		(month.value == 'May' && day.value <= 20)
 	) {
-		result.innerHTML = 'You\'re a Taurus !'
-	} else if (month.value == 'April' && day.value > 30) {
-		result.innerHTML = 'invalid date'
-	} else if (
+        
+		result.innerHTML = astroData[1].signName
+		resultTitle.innerHTML = astroData[1].signTitle
+        resultImg.src= astroData[1].signImg
+        resultDesc.innerHTML = astroData[1].signDescription
+    
+	} if (month.value == 'April' && day.value > 30) {
+        result.innerHTML = "Hm, I'm not sure about the date"
+		resultTitle.innerHTML = ""
+        resultImg.src= ""
+        resultDesc.innerHTML = ""
+	}if (
 		(month.value == 'May' && day.value >= 21) ||
 		(month.value == 'June' && day.value <= 21)
 	) {
-		result.innerHTML = 'You\'re a Gemini !'
-	} else if (month.value == 'May' && day.value > 31) {
-		result.innerHTML = 'invalid date'
-	} else if (
+		result.innerHTML = astroData[2].signName
+		resultTitle.innerHTML = astroData[2].signTitle
+        resultImg.src= astroData[2].signImg
+        resultDesc.innerHTML = astroData[2].signDescription
+
+	}if (month.value == 'May' && day.value > 31) {
+        result.innerHTML = "Hm, I'm not sure about the date"
+		resultTitle.innerHTML = ""
+        resultImg.src= ""
+        resultDesc.innerHTML = ""
+	}if (
 		(month.value == 'June' && day.value >= 22) ||
 		(month.value == 'July' && day.value <= 22)
 	) {
-		result.innerHTML = 'You\'re a Cancer !'
-	} else if (month.value == 'June' && day.value > 30) {
-		result.innerHTML = 'invalid date'
-	} else if (
+		result.innerHTML = astroData[3].signName
+		resultTitle.innerHTML = astroData[3].signTitle
+        resultImg.src= astroData[3].signImg
+        resultDesc.innerHTML = astroData[3].signDescription
+        
+	}if (month.value == 'June' && day.value > 30) {
+        result.innerHTML = "Hm, I'm not sure about the date"
+		resultTitle.innerHTML = ""
+        resultImg.src= ""
+        resultDesc.innerHTML = ""
+	}if (
 		(month.value == 'July' && day.value >= 23) ||
 		(month.value == 'August' && day.value <= 22)
 	) {
-		result.innerHTML = 'You\'re a Leo !'
-	} else if (month.value == 'July' && day.value > 31) {
-		result.innerHTML = 'invalid date'
-	} else if (
+        result.innerHTML = astroData[4].signName
+		resultTitle.innerHTML = astroData[4].signTitle
+        resultImg.src= astroData[4].signImg
+        resultDesc.innerHTML = astroData[4].signDescription
+        
+	}if (month.value == 'July' && day.value > 31) {
+        result.innerHTML = "Hm, I'm not sure about the date"
+		resultTitle.innerHTML = ""
+        resultImg.src= ""
+        resultDesc.innerHTML = ""
+	}if (
 		(month.value == 'August' && day.value >= 23) ||
 		(month.value == 'September' && day.value <= 22)
 	) {
-		result.innerHTML = 'You\'re a Virgo !'
-	} else if (month.value == 'August' && day.value > 31) {
-		result.innerHTML = 'invalid date'
-	} else if (
+        result.innerHTML = astroData[5].signName
+		resultTitle.innerHTML = astroData[5].signTitle
+        resultImg.src= astroData[5].signImg
+        resultDesc.innerHTML = astroData[5].signDescription
+        
+	}if (month.value == 'August' && day.value > 31) {
+        result.innerHTML = "Hm, I'm not sure about the date"
+		resultTitle.innerHTML = ""
+        resultImg.src= ""
+        resultDesc.innerHTML = ""
+	}if (
 		(month.value == 'September' && day.value >= 23) ||
 		(month.value == 'October' && day.value <= 22)
 	) {
-		result.innerHTML = 'You\'re a Libra !'
-	} else if (month.value == 'September' && day.value > 30) {
-		result.innerHTML = 'invalid date'
-	} else if (
+        result.innerHTML = astroData[6].signName
+		resultTitle.innerHTML = astroData[6].signTitle
+        resultImg.src= astroData[6].signImg
+        resultDesc.innerHTML = astroData[6].signDescription
+        
+	}if (month.value == 'September' && day.value > 30) {
+        result.innerHTML = "Hm, I'm not sure about the date"
+		resultTitle.innerHTML = ""
+        resultImg.src= ""
+        resultDesc.innerHTML = ""
+	}if (
 		(month.value == 'October' && day.value >= 23) ||
 		(month.value == 'November' && day.value <= 21)
 	) {
-		result.innerHTML = 'You\'re a Scorpio !'
-	} else if (month.value == 'October' && day.value > 31) {
-		result.innerHTML = 'invalid date'
-	} else if (
+        result.innerHTML = astroData[7].signName
+		resultTitle.innerHTML = astroData[7].signTitle
+        resultImg.src= astroData[7].signImg
+        resultDesc.innerHTML = astroData[7].signDescription
+        
+	}if (month.value == 'October' && day.value > 31) {
+        result.innerHTML = "Hm, I'm not sure about the date"
+		resultTitle.innerHTML = ""
+        resultImg.src= ""
+        resultDesc.innerHTML = ""
+	}if (
 		(month.value == 'November' && day.value >= 22) ||
 		(month.value == 'December' && day.value <= 21)
 	) {
-		result.innerHTML = 'You\'re a Sagittarius !'
-	} else if (month.value == 'November' && day.value > 30) {
-		result.innerHTML = 'invalid date'
-	} else if (
+        result.innerHTML = astroData[8].signName
+		resultTitle.innerHTML = astroData[8].signTitle
+        resultImg.src= astroData[8].signImg
+        resultDesc.innerHTML = astroData[8].signDescription
+        
+	}if (month.value == 'November' && day.value > 30) {
+        result.innerHTML = "Hm, I'm not sure about the date"
+		resultTitle.innerHTML = ""
+        resultImg.src= ""
+        resultDesc.innerHTML = ""
+	}if (
 		(month.value == 'December' && day.value >= 22) ||
 		(month.value == 'January' && day.value <= 19)
 	) {
-		result.innerHTML = 'You\'re a Capricorn !'
-	} else if (month.value == 'December' && day.value > 31) {
-		result.innerHTML = 'invalid date'
-	} else if (
+        result.innerHTML = astroData[9].signName
+		resultTitle.innerHTML = astroData[9].signTitle
+        resultImg.src= astroData[9].signImg
+        resultDesc.innerHTML = astroData[9].signDescription
+        
+	}if (month.value == 'December' && day.value > 31) {
+        result.innerHTML = "Hm, I'm not sure about the date"
+		resultTitle.innerHTML = ""
+        resultImg.src= ""
+        resultDesc.innerHTML = ""
+	}if (
 		(month.value == 'January' && day.value >= 20) ||
 		(month.value == 'February' && day.value <= 18)
 	) {
-		result.innerHTML = 'You\'re an Aquarius !'
-	} else if (month.value == 'January' && day.value > 31) {
-		result.innerHTML = 'invalid date'
-	} else if (
+        result.innerHTML = astroData[10].signName
+		resultTitle.innerHTML = astroData[10].signTitle
+        resultImg.src= astroData[10].signImg
+        resultDesc.innerHTML = astroData[10].signDescription
+        
+	}if (month.value == 'January' && day.value > 31) {
+        result.innerHTML = "Hm, I'm not sure about the date"
+		resultTitle.innerHTML = ""
+        resultImg.src= ""
+        resultDesc.innerHTML = ""
+	}if (
 		(month.value == 'February' && day.value >= 19) ||
 		(month.value == 'March' && day.value <= 20)
 	) {
-		result.innerHTML = 'You\'re a Pisces !'
-	} else if (month.value == 'February' && day.value > 29) {
-		result.innerHTML = 'invalid date'
+        result.innerHTML = astroData[11].signName
+		resultTitle.innerHTML = astroData[11].signTitle
+        resultImg.src= astroData[11].signImg
+        resultDesc.innerHTML = astroData[11].signDescription
+        
+	}if (month.value == 'February' && day.value > 29) {
+        result.innerHTML = "Hm, I'm not sure about the date"
+		resultTitle.innerHTML = ""
+        resultImg.src= ""
+        resultDesc.innerHTML = ""
 	}
 }
 
@@ -307,9 +439,8 @@ function GetSign(Month, Day) {
         $("#GoAgainBtn").click(function(){
             $("#sign-card").fadeOut()
             $("#sign-content").fadeIn();
-    
-});
-});
+        });
+    });
 button.addEventListener('click', GetSign)
 
 let request = new XMLHttpRequest();
