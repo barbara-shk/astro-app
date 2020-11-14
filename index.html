@@ -54,7 +54,7 @@
             <select name="Month" class="select-css" id="month">
                 <option value=Month>Month</option>
                 <option value="January">January</option>
-                <option value="Febuary">February</option>
+                <option value="February">February</option>
                 <option value="March">March</option>
                 <option value="April">April</option>
                 <option value="May">May</option>
@@ -262,13 +262,13 @@ function GetSign(Month, Day) {
         resultImg.src= astroData[0].signImg
         resultDesc.innerHTML = astroData[0].signDescription
 
-	}if (month.value == 'March' && day.value > 31) {
+	}else if (month.value == 'March' && day.value > 31) {
         result.innerHTML = "Hm, I'm not sure about the date"
 		resultTitle.innerHTML = ""
         resultImg.src= ""
         resultDesc.innerHTML = ""
 
-	}if (
+	}else if (
 		(month.value == 'April' && day.value >= 20) ||
 		(month.value == 'May' && day.value <= 20)
 	) {
@@ -278,12 +278,12 @@ function GetSign(Month, Day) {
         resultImg.src= astroData[1].signImg
         resultDesc.innerHTML = astroData[1].signDescription
     
-	} if (month.value == 'April' && day.value > 30) {
+	}else if (month.value == 'April' && day.value > 30) {
         result.innerHTML = "Hm, I'm not sure about the date"
 		resultTitle.innerHTML = ""
         resultImg.src= ""
         resultDesc.innerHTML = ""
-	}if (
+	}else if (
 		(month.value == 'May' && day.value >= 21) ||
 		(month.value == 'June' && day.value <= 21)
 	) {
@@ -292,12 +292,12 @@ function GetSign(Month, Day) {
         resultImg.src= astroData[2].signImg
         resultDesc.innerHTML = astroData[2].signDescription
 
-	}if (month.value == 'May' && day.value > 31) {
+	}else if (month.value == 'May' && day.value > 31) {
         result.innerHTML = "Hm, I'm not sure about the date"
 		resultTitle.innerHTML = ""
         resultImg.src= ""
         resultDesc.innerHTML = ""
-	}if (
+	}else if (
 		(month.value == 'June' && day.value >= 22) ||
 		(month.value == 'July' && day.value <= 22)
 	) {
@@ -306,12 +306,12 @@ function GetSign(Month, Day) {
         resultImg.src= astroData[3].signImg
         resultDesc.innerHTML = astroData[3].signDescription
         
-	}if (month.value == 'June' && day.value > 30) {
+	}else if (month.value == 'June' && day.value > 30) {
         result.innerHTML = "Hm, I'm not sure about the date"
 		resultTitle.innerHTML = ""
         resultImg.src= ""
         resultDesc.innerHTML = ""
-	}if (
+	}else if (
 		(month.value == 'July' && day.value >= 23) ||
 		(month.value == 'August' && day.value <= 22)
 	) {
@@ -320,12 +320,12 @@ function GetSign(Month, Day) {
         resultImg.src= astroData[4].signImg
         resultDesc.innerHTML = astroData[4].signDescription
         
-	}if (month.value == 'July' && day.value > 31) {
+	}else if (month.value == 'July' && day.value > 31) {
         result.innerHTML = "Hm, I'm not sure about the date"
 		resultTitle.innerHTML = ""
         resultImg.src= ""
         resultDesc.innerHTML = ""
-	}if (
+	}else if (
 		(month.value == 'August' && day.value >= 23) ||
 		(month.value == 'September' && day.value <= 22)
 	) {
@@ -334,12 +334,12 @@ function GetSign(Month, Day) {
         resultImg.src= astroData[5].signImg
         resultDesc.innerHTML = astroData[5].signDescription
         
-	}if (month.value == 'August' && day.value > 31) {
+	}else if (month.value == 'August' && day.value > 31) {
         result.innerHTML = "Hm, I'm not sure about the date"
 		resultTitle.innerHTML = ""
         resultImg.src= ""
         resultDesc.innerHTML = ""
-	}if (
+	}else if (
 		(month.value == 'September' && day.value >= 23) ||
 		(month.value == 'October' && day.value <= 22)
 	) {
@@ -348,12 +348,12 @@ function GetSign(Month, Day) {
         resultImg.src= astroData[6].signImg
         resultDesc.innerHTML = astroData[6].signDescription
         
-	}if (month.value == 'September' && day.value > 30) {
+	}else if (month.value == 'September' && day.value > 30) {
         result.innerHTML = "Hm, I'm not sure about the date"
 		resultTitle.innerHTML = ""
         resultImg.src= ""
         resultDesc.innerHTML = ""
-	}if (
+	}else if (
 		(month.value == 'October' && day.value >= 23) ||
 		(month.value == 'November' && day.value <= 21)
 	) {
@@ -362,12 +362,12 @@ function GetSign(Month, Day) {
         resultImg.src= astroData[7].signImg
         resultDesc.innerHTML = astroData[7].signDescription
         
-	}if (month.value == 'October' && day.value > 31) {
+	}else if (month.value == 'October' && day.value > 31) {
         result.innerHTML = "Hm, I'm not sure about the date"
 		resultTitle.innerHTML = ""
         resultImg.src= ""
         resultDesc.innerHTML = ""
-	}if (
+	}else if (
 		(month.value == 'November' && day.value >= 22) ||
 		(month.value == 'December' && day.value <= 21)
 	) {
@@ -376,12 +376,12 @@ function GetSign(Month, Day) {
         resultImg.src= astroData[8].signImg
         resultDesc.innerHTML = astroData[8].signDescription
         
-	}if (month.value == 'November' && day.value > 30) {
+	}else if (month.value == 'November' && day.value > 30) {
         result.innerHTML = "Hm, I'm not sure about the date"
 		resultTitle.innerHTML = ""
         resultImg.src= ""
         resultDesc.innerHTML = ""
-	}if (
+	}else if (
 		(month.value == 'December' && day.value >= 22) ||
 		(month.value == 'January' && day.value <= 19)
 	) {
@@ -390,12 +390,12 @@ function GetSign(Month, Day) {
         resultImg.src= astroData[9].signImg
         resultDesc.innerHTML = astroData[9].signDescription
         
-	}if (month.value == 'December' && day.value > 31) {
+	}else if (month.value == 'December' && day.value > 31) {
         result.innerHTML = "Hm, I'm not sure about the date"
 		resultTitle.innerHTML = ""
         resultImg.src= ""
         resultDesc.innerHTML = ""
-	}if (
+	}else if (
 		(month.value == 'January' && day.value >= 20) ||
 		(month.value == 'February' && day.value <= 18)
 	) {
@@ -404,12 +404,13 @@ function GetSign(Month, Day) {
         resultImg.src= astroData[10].signImg
         resultDesc.innerHTML = astroData[10].signDescription
         
-	}if (month.value == 'January' && day.value > 31) {
+	}else if (month.value == 'January' && day.value > 31) {
         result.innerHTML = "Hm, I'm not sure about the date"
 		resultTitle.innerHTML = ""
         resultImg.src= ""
         resultDesc.innerHTML = ""
-	}if (
+
+	}else if (
 		(month.value == 'February' && day.value >= 19) ||
 		(month.value == 'March' && day.value <= 20)
 	) {
@@ -418,7 +419,7 @@ function GetSign(Month, Day) {
         resultImg.src= astroData[11].signImg
         resultDesc.innerHTML = astroData[11].signDescription
         
-	}if (month.value == 'February' && day.value > 29) {
+	}else if (month.value == 'February' && day.value > 29) {
         result.innerHTML = "Hm, I'm not sure about the date"
 		resultTitle.innerHTML = ""
         resultImg.src= ""
@@ -443,9 +444,6 @@ function GetSign(Month, Day) {
     });
 button.addEventListener('click', GetSign)
 
-let request = new XMLHttpRequest();
-request.open('GET', 'astrodata.json', true);
-request.send();
     </script>
 </body>
 
